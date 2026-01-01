@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <title>Create New Position</title>
+</head>
+
+<body>
+
+<div class="container">
+	<br>
+	<p class="h3 mb-4">Create New Traineeship Position</p>
+	<form th:action="@{/company/create-position}" method="POST" th:object="${position}">
+	
+		<input type="text" id="title" th:field="*{title}" required placeholder="Title" class="form-control mb-4 col-4"/>
+		<textarea id="description" th:field="*{description}" required placeholder="Description" class="form-control mb-4 col-4"></textarea>
+		<input type="date" id="startDate" th:field="*{fromDate}" required class="form-control mb-4 col-4"/>
+		<input type="date" id="endDate" th:field="*{toDate}" required  class="form-control mb-4 col-4"/>
+		<input type="text" id="topics" th:field="*{topics}" required placeholder="Topics"  class="form-control mb-4 col-4"/>
+		<input type="text" id="skills" th:field="*{skills}" required placeholder="Skills"  class="form-control mb-4 col-4"/>
+	    
+	    <button type="submit" class="btn btn-info col-4">Create Position</button>
+	</form>
+	
+	<hr> <br>
+	<a th:href="@{/logout}" class="btn btn-danger btn-sm mb-3"> Logout</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Assigned Positions</title>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h2>Assigned Positions</h2>
+    <hr>
+
+    <table border="1" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Position Title</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Topics</th>
+            <th>Skills</th>
+            <th>Logbook</th>
+            <th>Pass/Fail Grade</th>
+            <th>Student Name</th>
+            <th>Company Name</th>
+            <th>Assign Professor</th>
+			<th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="position : ${positions}">
+            <td th:text="${position.title}"></td>
+            <td th:text="${position.description}"></td>
+            <td th:text="${position.fromDate}"></td>
+            <td th:text="${position.toDate}"></td>
+            <td th:text="${position.topics}"></td>
+            <td th:text="${position.skills}"></td>
+            <td th:text="${position.studentLogbook}"></td>
+            <td th:text="${position.passFailGrade}"></td>
+            <td th:text="${position.student != null} ? ${position.student.studentName} : 'No Student'"></td>
+            <td th:text="${position.company.companyName}"></td>
+            <td>
+			    <a th:if='${position.supervisor == null}' th:href="@{assign-professor/{id}/interests (id=${position.id})}">Interests</a>
+				<a th:if='${position.supervisor == null}' th:href="@{assign-professor/{id}/workload (id=${position.id})}">Workload</a>
+
+			</td>
+			<td>
+				<a th:href="@{/commitee/positions/{id}/final (id=${position.id}) }">Final Evaluation</a>
+			</td>
+        </tr>
+    </tbody>
+	</table>
+
+	<hr>
+	<a th:href="@{/logout}" class="btn btn-danger btn-sm mb-3"> Logout</a>
+</div>
+
+</body>
+</html>

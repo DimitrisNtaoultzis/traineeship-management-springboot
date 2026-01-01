@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <title>Fill Profile</title>
+</head>
+
+<body>
+
+	<p class="h3 mb-4">Fill Profile Info</p>
+	<div class="container">
+	<form th:action="@{/professor/profile/save}" method="POST" th:object="${professor}">
+	    <input type="text" id="username" th:field="*{username}" required disabled placeholder="User Name" class="form-control mb-4 col-4"/>
+	    <input type="text" id="fullname" th:field="*{professorName}" required placeholder="Professor Name" class="form-control mb-4 col-4"/>
+	    <textarea id="interests" th:field="*{interests}" required placeholder="Interests" class="form-control mb-4 col-4"></textarea>
+	    
+	    <button type="submit" class="btn btn-info col-4">Save Profile</button>
+	</form>
+	
+	<hr>
+	<a th:href="@{/logout}" class="btn btn-danger btn-sm mb-3"> Logout</a>
+</div>
+
+</body>
+</html>

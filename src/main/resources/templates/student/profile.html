@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <title>Fill Profile</title>
+</head>
+
+<body>
+
+<h1>Fill Profile Info</h1>
+
+<div class="container">
+<form th:action="@{/student/profile/save}" method="POST" th:object="${student}">
+    <table>
+        <tr>
+            <td><label for="username">Username:</label></td>
+            <td><input type="text" id="username" th:field="*{username}" required disabled/></td>
+        </tr>
+        <tr>
+            <td><label for="name">Full name:</label></td>
+            <td><textarea id="name" th:field="*{studentName}" required></textarea></td>
+        </tr>
+        <tr>
+            <td><label for="am">AM:</label></td>
+            <td><input type="text" id="am" th:field="*{AM}" required /></td>
+        </tr>
+        <tr>
+            <td><label for="avgGrade">Average Grade:</label></td>
+            <td><input type="text" id="avgGrade" th:field="*{avgGrade}" required /></td>
+        </tr>
+        <tr>
+            <td><label for="interests">Interests (seperate with comma):</label></td>
+            <td><input type="text" id="interests" th:field="*{interests}" required /></td>
+        </tr>
+        <tr>
+            <td><label for="skills">Skills (seperate with comma):</label></td>
+            <td><input type="text" id="skills" th:field="*{skills}" required /></td>
+        </tr>
+        <tr>
+            <td><label for="location">Preferred Location:</label></td>
+            <td><input type="text" id="location" th:field="*{preferredLocation}" required/></td>
+        </tr>
+        
+    </table>
+    
+    <button type="submit" class="btn btn-info col-2">Save Profile</button>
+</form>
+
+<hr> <br>
+<a th:href="@{/logout}" class="btn btn-danger btn-sm mb-3"> Logout</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <title>Final Evaluation</title>
+</head>
+
+<body>
+
+<div class="container">
+    <br>
+    <h2>Professor's Evaluation</h2>
+
+    <table class="table table-bordered col-6">
+        <tr>
+            <th>Motivation</th>
+            <td th:text="${profEvaluation.motivation}">-</td>
+        </tr>
+        <tr>
+            <th>Efficiency</th>
+            <td th:text="${profEvaluation.efficiency}">-</td>
+        </tr>
+        <tr>
+            <th>Effectiveness</th>
+            <td th:text="${profEvaluation.effectiveness}">-</td>
+        </tr>
+        <tr>
+            <th>Facilities</th>
+            <td th:text="${profEvaluation.facilities}">-</td>
+        </tr>
+        <tr>
+            <th>Guidance</th>
+            <td th:text="${profEvaluation.guidance}">-</td>
+        </tr>
+    </table>
+
+    <hr>
+    <h2>Company's Evaluation</h2>
+
+    <table class="table table-bordered col-6">
+        <tr>
+            <th>Motivation</th>
+            <td th:text="${compEvaluation.motivation}">-</td>
+        </tr>
+        <tr>
+            <th>Efficiency</th>
+            <td th:text="${compEvaluation.efficiency}">-</td>
+        </tr>
+        <tr>
+            <th>Effectiveness</th>
+            <td th:text="${compEvaluation.effectiveness}">-</td>
+        </tr>
+    </table>
+	<a th:href="@{/commitee/positions/{id}/final/{grade} (id=${id}, grade=${true})}" class="btn btn-primary btn-sm mb-3">Pass</a>
+    <a th:href="@{/commitee/positions/{id}/final/{grade} (id=${id}, grade=${false})}" class="btn btn-danger btn-sm mb-3">Fail</a>
+    
+    <hr>
+    <a th:href="@{/logout}" class="btn btn-danger btn-sm mb-3">Logout</a>
+</div>
+
+</body>
+</html>
+

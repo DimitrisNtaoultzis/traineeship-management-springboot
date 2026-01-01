@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <title>Professor's Evaluation</title>
+</head>
+
+<body>
+
+	
+	<div class="container">
+	<br>
+	<form th:action="@{/professor/positions/{id}/evaluation/save (id=${posId})}" method="POST" th:object="${evaluation}">
+	    <h2>Student Evaluation</h2>
+		<h5>Motivation (1 (bad) - 5 (perfect))</h5>
+		<input type="number" hidden th:field="*{id}">
+		<input type="number" th:field="*{motivation}" required placeholder="Motivation" class="form-control mb-4 col-4"/>
+		<h5>Efficiency (1 (bad) - 5 (perfect))</h5>
+		<input type="number" th:field="*{efficiency}" required placeholder="Efficiency" class="form-control mb-4 col-4"/>
+		<h5>Effectiveness (1 (bad) - 5 (perfect))</h5>
+		<input type="number" th:field="*{effectiveness}" required placeholder="Effectiveness" class="form-control mb-4 col-4"/>
+		<hr>
+		<h2>Company Evaluation</h2>
+		<h5>Facilities (1 (bad) - 5 (perfect))</h5>
+		<input type="number" th:field="*{facilities}" required placeholder="Motivation" class="form-control mb-4 col-4"/>
+		<h5>Guidance (1 (bad) - 5 (perfect))</h5>
+		<input type="number" th:field="*{guidance}" required placeholder="Efficiency" class="form-control mb-4 col-4"/>
+		
+	    <button type="submit" class="btn btn-info col-4">Save Evaluation</button>
+	</form>
+	
+	<hr>
+	<a th:href="@{/logout}" class="btn btn-danger btn-sm mb-3"> Logout</a>
+</div>
+
+</body>
+</html>

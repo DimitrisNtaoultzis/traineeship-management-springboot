@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Student's Dashboard</title>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h2>Dashboard</h2>
+    
+    <a th:href="@{/student/profile}" class="btn btn-primary col-2"> Profile</a>
+    <a th:if="${!student.lookingForTraineeship}" th:href="@{/student/apply}" class="btn btn-primary col-2"> Apply for traineeship</a>
+    <a th:if="${student.lookingForTraineeship}" class="btn btn-secondary col-2 disabled"> Apply for traineeship</a>
+	<a th:href="@{/student/fill-logbook}" class="btn btn-primary col-2"> Fill Logbook</a>
+	
+	<hr> <br>
+	<a th:href="@{/logout}" class="btn btn-danger btn-sm mb-3"> Logout</a>
+</div>
+
+</body>
+</html>

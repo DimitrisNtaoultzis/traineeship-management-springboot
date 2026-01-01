@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Fill Info</title>
+</head>
+
+
+<body>
+
+<div class="container">
+	<br>
+		
+	<p class="h3 mb-4">Fill Company's Info </p>
+	<form th:action="@{/company/save}" th:object="${company}" method="POST">
+	    <input required type="text" th:field="*{username}" placeholder="User Name" class="form-control mb-4 col-4"/> 
+	    <input required type="text" th:field="*{companyName}" placeholder="Company's name" class="form-control mb-4 col-4"/> 
+	    <input required type="text" th:field="*{companyLocation}" placeholder="Company's location" class="form-control mb-4 col-4"/> 
+	    
+	    <button type="submit" class="btn btn-info col-4">Complete</button> 
+	</form>
+
+	<hr>
+	<a th:href="@{/logout}" class="btn btn-danger btn-sm mb-3"> Logout</a>
+</div>
+</body>
+</html>
